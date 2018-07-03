@@ -1,19 +1,16 @@
 SUMMARY = "Google TensorFlow"
 SECTION = "devel/python"
-LICENSE = "BSD-3-Clause & BSD-2-Clause & PSF & Apache-2.0 & BSD"
-LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=fc53b33304171d132128ebe82ea4a645"
+LICENSE = "Apache-2.0"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=01e86893010a1b87e69a213faa753ebd"
 
 SRCNAME = "tensorflow"
 
-SRC_URI = "https://github.com/${SRCNAME}/${SRCNAME}/releases/download/v${PV}/${SRCNAME}-${PV}.tar.gz"
-
-UPSTREAM_CHECK_URI = "https://github.com/tensorflow/tensorflow/releases"
-UPSTREAM_CHECK_REGEX = "(?P<pver>\d+(\.\d+)+)\.tar"
+SRC_URI = "https://github.com/${SRCNAME}/${SRCNAME}/archive/v${PV}.tar.gz"
 
 S = "${WORKDIR}/tensorflow-${PV}"
 
-# install what is needed for numpy.test()
-RDEPENDS_${PN} = "${PYTHON_PN}-unittest \
+RDEPENDS_${PN} = "opencv \
+                  ${PYTHON_PN}-unittest \
                   ${PYTHON_PN}-difflib \
                   ${PYTHON_PN}-pprint \
                   ${PYTHON_PN}-pickle \
